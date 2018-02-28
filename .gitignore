@@ -2,4 +2,5 @@
 *.jpeg
 *.bak
 *.test
+*.notes
 packaged.yaml
