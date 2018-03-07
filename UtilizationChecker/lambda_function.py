@@ -31,7 +31,7 @@ def lambda_handler(event, context):
 
         #Check if utilization is below configured threshold. If it is post a mesage to 
         #the SNS topic
-        if int(result['Total']['UtilizationPercentage']) < UtilThreshold:
+        if float(result['Total']['UtilizationPercentage']) < UtilThreshold:
           print("Unutilized RIs found, sending notification...")
 
           sns = boto3.client('sns')
