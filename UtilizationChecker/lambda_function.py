@@ -22,10 +22,10 @@ def lambda_handler(event, context):
   if r['ResponseMetadata']['HTTPStatusCode'] == 200:
     for result in r['UtilizationsByTime']:
       if result['TimePeriod']['Start'] == start_date:
-        msg = "RI utilization during {} - {}: {}%".format(
+        msg = "RI utilization during {} - {}: {:2.2f}%".format(
           result['TimePeriod']['Start'], 
           result['TimePeriod']['End'], 
-          result['Total']['UtilizationPercentage']
+          float(result['Total']['UtilizationPercentage'])
           )
         print("LOG: "+msg)
 
